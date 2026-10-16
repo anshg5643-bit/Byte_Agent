@@ -1,26 +1,201 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #4a7c59;
+  --color-primary-container: #78a886;
+  --color-primary-fixed: #c8e8d0;
+  --color-primary-fixed-dim: #8ecf9e;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #d8f0de;
+  --color-on-primary-fixed: #002110;
+  --color-on-primary-fixed-variant: #2a6038;
+  --color-inverse-primary: #8ecf9e;
+
+  --color-secondary: #6b6358;
+  --color-secondary-container: #f0e8db;
+  --color-secondary-fixed: #f0e8db;
+  --color-secondary-fixed-dim: #d4ccbf;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #5e5548;
+  --color-on-secondary-fixed: #1e1a13;
+  --color-on-secondary-fixed-variant: #4a4538;
+
+  --color-tertiary: #705c30;
+  --color-tertiary-container: #c4a66a;
+  --color-tertiary-fixed: #f8e0a8;
+  --color-tertiary-fixed-dim: #dcc48e;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #554020;
+  --color-on-tertiary-fixed: #221a05;
+  --color-on-tertiary-fixed-variant: #554020;
+
+  --color-background: #faf6f0;
+  --color-on-background: #2e3230;
+
+  --color-surface: #faf6f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f1ea;
+  --color-surface-container: #f0ece4;
+  --color-surface-container-high: #eae6de;
+  --color-surface-container-highest: #e4e0d8;
+  --color-surface-dim: #dbd7cf;
+  --color-surface-bright: #faf6f0;
+  --color-surface-variant: #e4e0d8;
+  --color-surface-tint: #4a7c59;
+
+  --color-on-surface: #2e3230;
+  --color-on-surface-variant: #4a4e4a;
+  --color-inverse-surface: #2e3230;
+  --color-inverse-on-surface: #f5f0e8;
+
+  --color-outline: #74796e;
+  --color-outline-variant: #c4c8bc;
+
+  --color-error: #b83230;
+  --color-error-container: #ffdad8;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #690005;
+
+  --font-headline: var(--font-literata), Georgia, serif;
+  --font-display: var(--font-literata), Georgia, serif;
+  --font-body: var(--font-nunito-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-label: var(--font-nunito-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --primary: #4a7c59;
+  --primary-container: #78a886;
+  --primary-fixed: #c8e8d0;
+  --primary-fixed-dim: #8ecf9e;
+  --on-primary: #ffffff;
+  --on-primary-container: #d8f0de;
+  --on-primary-fixed: #002110;
+  --on-primary-fixed-variant: #2a6038;
+  --inverse-primary: #8ecf9e;
+
+  --secondary: #6b6358;
+  --secondary-container: #f0e8db;
+  --secondary-fixed: #f0e8db;
+  --secondary-fixed-dim: #d4ccbf;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #5e5548;
+  --on-secondary-fixed: #1e1a13;
+  --on-secondary-fixed-variant: #4a4538;
+
+  --tertiary: #705c30;
+  --tertiary-container: #c4a66a;
+  --tertiary-fixed: #f8e0a8;
+  --tertiary-fixed-dim: #dcc48e;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #554020;
+  --on-tertiary-fixed: #221a05;
+  --on-tertiary-fixed-variant: #554020;
+
+  --background: #faf6f0;
+  --on-background: #2e3230;
+
+  --surface: #faf6f0;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f5f1ea;
+  --surface-container: #f0ece4;
+  --surface-container-high: #eae6de;
+  --surface-container-highest: #e4e0d8;
+  --surface-dim: #dbd7cf;
+  --surface-bright: #faf6f0;
+  --surface-variant: #e4e0d8;
+  --surface-tint: #4a7c59;
+
+  --on-surface: #2e3230;
+  --on-surface-variant: #4a4e4a;
+  --inverse-surface: #2e3230;
+  --inverse-on-surface: #f5f0e8;
+
+  --outline: #74796e;
+  --outline-variant: #c4c8bc;
+
+  --error: #b83230;
+  --error-container: #ffdad8;
+  --on-error: #ffffff;
+  --on-error-container: #690005;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #faf6f0;
+  color: #2e3230;
+  overscroll-behavior: none;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4c8bc;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #74796e;
+}
+
+/* Material Symbols Outlined Icon Font Styling */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keyframe Animations */
+@keyframes scanline {
+  0% { transform: translateY(0px); opacity: 0.2; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(600px); opacity: 0.2; }
+}
+
+@keyframes pulseEye {
+  0%, 100% { fill: #8ae9b3; r: 6px; }
+  50% { fill: #ffffff; r: 8px; filter: drop-shadow(0 0 10px #8ae9b3); }
+}
+
+@keyframes floatRobot {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(1.5deg); }
+}
+
+@keyframes circuitFlow {
+  0% { stroke-dashoffset: 120; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.floating-bot {
+  animation: floatRobot 6s ease-in-out infinite;
+  transform-origin: 900px 380px;
+}
+
+.scan-beam {
+  animation: scanline 4s linear infinite;
+}
+
+.pulse-optic {
+  animation: pulseEye 2.5s ease-in-out infinite;
+}
+
+.circuit-line {
+  stroke-dasharray: 8 6;
+  animation: circuitFlow 3s linear infinite;
 }
